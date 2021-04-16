@@ -1,0 +1,37 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: momgo-sync
+
+  data:
+    mongodb:
+      uri: mongodb://账户:密码@ip:端口/?authSource=admin
+
+  elasticsearch:
+    bboss:
+      elasticsearch:
+        rest.hostNames: 127.0.0.1:9200
+        showTemplate: true
+
+  redis:
+    database: 0
+    host: 127.0.0.1
+    password: 123456
+    port: 6379
+    timeout: 3000ms
+    lettuce:
+      pool:
+        max-active: 8
+        max-wait: 1500ms
+        max-idle: 8
+        min-idle: 4
+        time-between-eviction-runs: 3000ms
+
+logging:
+  file:
+    path: /data/logs/${spring.application.name}
+
+mongodb:
+  tables: 需要同步的mongo表名
